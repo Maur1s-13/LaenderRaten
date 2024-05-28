@@ -13,11 +13,14 @@ namespace LaenderRaten.Lib.Models
         public string CapitalCity { get; set; }
         public string ImageURL { get; set; }
 
-        public Land(string countryName, string capitalCity, string imageUrl)
+        public string Continent { get; set; }
+
+        public Land(string countryName, string capitalCity, string imageUrl, string continent)
         {
                 this.CountryName = countryName;
                 this.CapitalCity = capitalCity;
                 this.ImageURL = imageUrl;
+                this.Continent = continent;
         }
     }
 }

@@ -10,7 +10,10 @@ namespace LaenderRaten.Core.ViewModels
     public partial class AddCountryViewModel : ObservableObject
     {
 
-
+        //Liste aller Länder anzeigen 
+        //Länder die bereits hinzugefügt worden sind mit grünen Text anzeigen
+        //Per Imagebutton anzeigen lassen
+        //ImageSource ist gegeben png name ist name des Landes
 
     }
 }
