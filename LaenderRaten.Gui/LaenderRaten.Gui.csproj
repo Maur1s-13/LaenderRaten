@@ -67,4 +67,10 @@
 	  <ProjectReference Include="..\LaenderRaten.Lib\LaenderRaten.Lib.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <MauiXaml Update="Pages\AddCountry.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>
