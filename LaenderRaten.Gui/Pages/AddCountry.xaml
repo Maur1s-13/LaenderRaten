@@ -7,10 +7,12 @@
              x:DataType="viemodels:AddCountryViewModel"
              BackgroundColor="{StaticResource Background}">
 
+    
+        <Grid BackgroundColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+          RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="Auto" >
 
-    <Grid BackgroundColor="White" VerticalOptions="Center" HorizontalOptions="Center"
-          RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="Auto">
-
+        
+        
         <Grid.Shadow>
             <Shadow Brush="Black"
                     Offset="10,10"
@@ -18,11 +20,17 @@
                     Opacity="0.5" />
         </Grid.Shadow>
 
-        <Label Text="Land hinzufügen" FontAttributes="Bold" FontSize="Header" FontFamily="{}" />
+        <Label Text="Land hinzufügen" FontAttributes="Bold" FontSize="Header" FontFamily="PoetsenOne-Regular" />
+        <Entry Text="{Binding CountryName}" Grid.Row="1" Placeholder="Landname"/>
+        <Entry Text="{Binding CapitalCity}" Grid.Row="2" Placeholder="Hauptstadt"/>
+        <Entry Text="{Binding Continent}"  Grid.Row="3" Placeholder="Kontinent"/>
+        
 
 
 
 
     </Grid>
+
     
+
 </ContentPage>

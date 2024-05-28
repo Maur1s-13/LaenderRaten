@@ -16,5 +16,17 @@ namespace LaenderRaten.Core.ViewModels
         //ImageSource ist gegeben png name ist name des Landes
         //ä ö Ü ß alle zue umlaute
 
+        [ObservableProperty]
+        public string countryName;
+
+        [ObservableProperty]
+        public string capitalCity;
+
+        [ObservableProperty]
+        public string imageUrl;
+
+        [ObservableProperty]
+        public string continent;
+
     }
 }
