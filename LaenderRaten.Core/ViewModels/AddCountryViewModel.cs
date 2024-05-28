@@ -9,5 +9,8 @@ namespace LaenderRaten.Core.ViewModels
 {
     public partial class AddCountryViewModel : ObservableObject
     {
+
+
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using LaenderRaten.Core.ViewModels;
+using LaenderRaten.Gui.Pages;
 using Microsoft.Extensions.Logging;
 
 namespace LaenderRaten.Gui
@@ -21,6 +22,9 @@ namespace LaenderRaten.Gui
 
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<MainViewModel>();
+
+            builder.Services.AddSingleton<AddCountryViewModel>();
+            builder.Services.AddSingleton<AddCountry>();
 #endif
 
             return builder.Build();
