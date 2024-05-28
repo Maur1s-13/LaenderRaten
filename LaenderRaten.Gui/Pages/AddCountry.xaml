@@ -8,8 +8,8 @@
              BackgroundColor="{StaticResource Background}">
 
     
-        <Grid BackgroundColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
-          RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="Auto" >
+        <Grid BackgroundColor="White" VerticalOptions="Fill" HorizontalOptions="Fill" Margin="20, 20, 20, 20" 
+          RowDefinitions="Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="Auto"  >
 
         
         
@@ -20,11 +20,12 @@
                     Opacity="0.5" />
         </Grid.Shadow>
 
+        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
         <Label Text="Land hinzufügen" FontAttributes="Bold" FontSize="Header" FontFamily="PoetsenOne-Regular" />
         <Entry Text="{Binding CountryName}" Grid.Row="1" Placeholder="Landname"/>
         <Entry Text="{Binding CapitalCity}" Grid.Row="2" Placeholder="Hauptstadt"/>
         <Entry Text="{Binding Continent}"  Grid.Row="3" Placeholder="Kontinent"/>
-        
+        </VerticalStackLayout>
 
 
 
