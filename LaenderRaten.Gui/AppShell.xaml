@@ -4,12 +4,27 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:LaenderRaten.Gui"
+    xmlns:pages="clr-namespace:LaenderRaten.Gui.Pages"
     Shell.FlyoutBehavior="Disabled"
     Title="LaenderRaten.Gui">
 
-    <ShellContent
+    <!--- <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Route="MainPage" />-->
+
+
+    <TabBar>
+        <Tab Title="Länder raten" Icon="globus.png">
+            <ShellContent
+                ContentTemplate="{DataTemplate local:MainPage}"/>
+        </Tab>
+
+        <Tab Title="Länder hinzufügen" Icon="add.png">
+            <ShellContent
+        ContentTemplate="{DataTemplate pages:AddCountry}"/>
+        </Tab>
+
+    </TabBar>
 
 </Shell>
