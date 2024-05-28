@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaenderRaten.Core", "Laende
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaenderRaten.Lib", "LaenderRaten.Lib\LaenderRaten.Lib.csproj", "{C9DD04AB-9CED-4031-B8B6-1F2BFB31AAEA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaenderRaten.Gui", "LaenderRaten.Gui\LaenderRaten.Gui.csproj", "{8AE1F007-3206-491D-AC2C-483E8EC500FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,12 @@ Global
 		{C9DD04AB-9CED-4031-B8B6-1F2BFB31AAEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9DD04AB-9CED-4031-B8B6-1F2BFB31AAEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9DD04AB-9CED-4031-B8B6-1F2BFB31AAEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AE1F007-3206-491D-AC2C-483E8EC500FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AE1F007-3206-491D-AC2C-483E8EC500FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AE1F007-3206-491D-AC2C-483E8EC500FB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{8AE1F007-3206-491D-AC2C-483E8EC500FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AE1F007-3206-491D-AC2C-483E8EC500FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AE1F007-3206-491D-AC2C-483E8EC500FB}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
