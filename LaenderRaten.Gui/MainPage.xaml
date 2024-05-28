@@ -4,6 +4,7 @@
              x:Class="LaenderRaten.Gui.MainPage"
              xmlns:viewmodels="clr-namespace:LaenderRaten.Core.ViewModels;assembly=LaenderRaten.Core"
              x:DataType="viewmodels:MainViewModel"
+             BackgroundColor="{StaticResource Background}"
              >
 
   

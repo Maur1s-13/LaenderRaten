@@ -6,16 +6,22 @@
     xmlns:local="clr-namespace:LaenderRaten.Gui"
     xmlns:pages="clr-namespace:LaenderRaten.Gui.Pages"
     Shell.FlyoutBehavior="Disabled"
-    Title="LaenderRaten.Gui">
+    Title="LaenderRaten.Gui"
+    BackgroundColor="{StaticResource Background}">
 
     <!--- <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />-->
 
+    
 
-    <TabBar>
-        <Tab Title="Länder raten" Icon="globus.png">
+
+    <TabBar Shell.BackgroundColor="{StaticResource Background}" 
+            Shell.TabBarBackgroundColor="{StaticResource Background}" 
+            Shell.TabBarTitleColor="White" 
+            Shell.TabBarForegroundColor="White"  >
+        <Tab  Title="Länder raten" Icon="globus.png">
             <ShellContent
                 ContentTemplate="{DataTemplate local:MainPage}"/>
         </Tab>
