@@ -14,6 +14,7 @@ namespace LaenderRaten.Core.ViewModels
         //Länder die bereits hinzugefügt worden sind mit grünen Text anzeigen
         //Per Imagebutton anzeigen lassen
         //ImageSource ist gegeben png name ist name des Landes
+        //ä ö Ü ß alle zue umlaute
 
     }
 }
