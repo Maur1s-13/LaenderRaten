@@ -49,9 +49,8 @@ namespace LaenderRaten.Core.ViewModels
         [ObservableProperty]
         public string _imageURL = string.Empty;
 
-        [ObservableProperty]
-        Land currentCountry = null;
-
+       
+        Land currentCountry {  get; set; }
         [RelayCommand]
         public void Load()
         {
@@ -69,14 +68,17 @@ namespace LaenderRaten.Core.ViewModels
         [RelayCommand]
         public void Easy()
         {
+            this.Isplaying = 0;
+            this.IsplayingEasy = 0;
+
             Random random = new Random();
             int gen = random.Next(0, this.Countries.Count);
 
-            this.CurrentCountry = _repository.Find(gen);
+            currentCountry = _repository.Find(gen);
 
-            this.ImageURL = this.CurrentCountry.ImageURL;
+            this.ImageURL = this.currentCountry.ImageURL;
 
-            if (this.CountryName == CurrentCountry.CountryName)
+            if (this.CountryName == currentCountry.CountryName)
             {
                 this.Count++;
             }

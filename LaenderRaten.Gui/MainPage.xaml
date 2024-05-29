@@ -16,6 +16,14 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
+    <ContentPage.Behaviors>
+
+        <toolkit:EventToCommandBehavior EventName="Appearing"
+                                    Command="{Binding LoadCommand}" />
+        
+
+    </ContentPage.Behaviors>
+
     <ScrollView>
 
         <Grid ColumnDefinitions="*"
@@ -40,17 +48,19 @@
 
         <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="30" >
             <Label Text="Länder Quiz spielen" FontSize="Header" FontAttributes="Bold" />
-            <Button Text="Leicht" BackgroundColor="Green" TextColor="White"/>
+            <Button Text="Leicht" Command="{Binding EasyCommand}" BackgroundColor="Green" TextColor="White"/>
             <Button Text="Mittel" BackgroundColor="DarkOrange" TextColor="White"/>
             <Button Text="Schwer" BackgroundColor="DarkRed" TextColor="White"/>
         </VerticalStackLayout>
     </Grid>
 
-            <Grid IsVisible="{Binding IsplayingEasy,Converter=StaticResource IsNotNullConverter}"
+            <Grid IsVisible="{Binding IsplayingEasy,Converter={StaticResource IsNotNullConverter}}"
                   ColumnDefinitions="*" RowDefinitions="Auto, Auto, Auto">
 
-                <VerticalStackLayout>
-                    
+                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="30" >
+                    <Image Source="{Binding ImageURL}"/>
+                    <Entry Text="{Binding CountryName}" Placeholder="Landname"/>
+                    <Button Text="Antworten" Command="{Binding EasyCommand}"/>
                 </VerticalStackLayout>
                 
             </Grid>
