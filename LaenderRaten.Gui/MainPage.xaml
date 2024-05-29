@@ -16,17 +16,27 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <Grid IsVisible="{Binding Isplaying, Converter={StaticResource IsNullConverter}}"
-          ColumnDefinitions="*" VerticalOptions="Fill" RowDefinitions="*, Auto, Auto, Auto, Auto"
-          BackgroundColor="White"
-          Margin="20,20,20,20">
+    <ScrollView>
 
-        <Grid.Shadow>
-            <Shadow Brush="Black"
-        Offset="10,10"
-        Radius="20"
-        Opacity="0.5" />
-        </Grid.Shadow>
+        <Grid ColumnDefinitions="*"
+              VerticalOptions="Fill"
+              HorizontalOptions="Fill"
+              BackgroundColor="White"
+              RowDefinitions="*, Auto, Auto, Auto, Auto"
+              Margin="20,20,20,20"
+              >
+            <Grid.Shadow>
+                <Shadow Brush="Black"
+                Offset="10,10"
+                Radius="20"
+                Opacity="0.5" />
+            </Grid.Shadow>
+
+
+            <Grid IsVisible="{Binding Isplaying, Converter={StaticResource IsNullConverter}}"
+          ColumnDefinitions="*"  RowDefinitions="*, Auto, Auto, Auto, Auto">
+
+        
 
         <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="30" >
             <Label Text="Länder Quiz spielen" FontSize="Header" FontAttributes="Bold" />
@@ -35,8 +45,16 @@
             <Button Text="Schwer" BackgroundColor="DarkRed" TextColor="White"/>
         </VerticalStackLayout>
     </Grid>
-    
 
-  
+            <Grid IsVisible="{Binding IsplayingEasy,Converter=StaticResource IsNotNullConverter}"
+                  ColumnDefinitions="*" RowDefinitions="Auto, Auto, Auto">
 
+                <VerticalStackLayout>
+                    
+                </VerticalStackLayout>
+                
+            </Grid>
+
+        </Grid>
+    </ScrollView>
 </ContentPage>

@@ -34,11 +34,34 @@ namespace LaenderRaten.Core.ViewModels
         [ObservableProperty]
         public List<Land> _countries = new List<Land>();
 
+        [ObservableProperty]
+        public int _count = 0;
+
+        [ObservableProperty]
+        public string _countryName = string.Empty;
+
+        [ObservableProperty]
+        public string _capitalCity = string.Empty;
+
+        [ObservableProperty]
+        public string _continent = string.Empty;
+
+        [ObservableProperty]
+        public string _imageURL = string.Empty;
+
+        [ObservableProperty]
+        Land currentCountry = null;
+
         [RelayCommand]
         public void Load()
         {
 
-            var countries = 
+            var countries = _repository.GetAll();
+
+            foreach (var country in countries)
+            {
+                this.Countries.Add(country);
+            }
 
         }
 
@@ -47,7 +70,17 @@ namespace LaenderRaten.Core.ViewModels
         public void Easy()
         {
             Random random = new Random();
-            int gen = random.Next(0, 10);
+            int gen = random.Next(0, this.Countries.Count);
+
+            this.CurrentCountry = _repository.Find(gen);
+
+            this.ImageURL = this.CurrentCountry.ImageURL;
+
+            if (this.CountryName == CurrentCountry.CountryName)
+            {
+                this.Count++;
+            }
+
 
 
         }
