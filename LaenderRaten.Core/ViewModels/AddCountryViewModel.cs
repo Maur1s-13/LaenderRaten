@@ -40,8 +40,10 @@ namespace LaenderRaten.Core.ViewModels
         public string continent;
 
         [ObservableProperty]
-        ObservableCollection<Land> _countries;
+        ObservableCollection<Land> _countries = [];
 
+        [ObservableProperty]
+        Land _selectedcountry = null;
 
         [RelayCommand]
         public void Add()
