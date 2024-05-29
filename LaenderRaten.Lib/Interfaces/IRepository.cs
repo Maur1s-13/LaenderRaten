@@ -1,0 +1,15 @@
+﻿using LaenderRaten.Lib.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LaenderRaten.Lib.Interfaces
+{
+    public interface IRepository
+    {
+        public bool Add(Land land);
+        public bool Delete(Land land);
+    }
+}

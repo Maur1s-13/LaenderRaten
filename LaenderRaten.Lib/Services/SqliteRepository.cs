@@ -1,4 +1,5 @@
-﻿using LaenderRaten.Lib.Models;
+﻿using LaenderRaten.Lib.Interfaces;
+using LaenderRaten.Lib.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LaenderRaten.Lib.Services;
 
-public class SqliteRepository
+public class SqliteRepository : IRepository
 {
 
     private string _path;
@@ -55,5 +56,7 @@ public class SqliteRepository
            return false;
         }
     }
+
+  
 
 }
