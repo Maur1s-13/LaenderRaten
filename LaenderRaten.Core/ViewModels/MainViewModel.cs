@@ -47,6 +47,9 @@ namespace LaenderRaten.Core.ViewModels
         public string _continent = string.Empty;
 
         [ObservableProperty]
+        public string _eingabe = string.Empty;
+
+        [ObservableProperty]
         public string _imageURL = string.Empty;
 
        
@@ -54,6 +57,7 @@ namespace LaenderRaten.Core.ViewModels
         [RelayCommand]
         public void Load()
         {
+            this.Countries.Clear();
 
             var countries = _repository.GetAll();
 
@@ -87,7 +91,9 @@ namespace LaenderRaten.Core.ViewModels
 
                 this.ImageURL = this.currentCountry.ImageURL;
 
-                FrageEasy(currentCountry.CountryName);
+                FrageEasy(this.Eingabe);
+
+               
                 
             }
 
