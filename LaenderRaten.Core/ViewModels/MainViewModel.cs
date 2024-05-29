@@ -15,5 +15,18 @@ namespace LaenderRaten.Core.ViewModels
         // Land kann nur einmal pro Runde vorkommen
         // Feedback wie viele Länder richtig beantwortet wurden/falsch
 
+        [ObservableProperty]
+        public int? _isplaying = null;
+
+        [ObservableProperty]
+        public int? _isplayingEasy = null;
+
+        [ObservableProperty]
+        public int? _isplayingMedium = null;
+
+        [ObservableProperty]
+        public int? _isplayingHard = null;
+
+
     }
 }
