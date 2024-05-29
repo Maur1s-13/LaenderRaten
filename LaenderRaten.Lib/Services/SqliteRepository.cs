@@ -77,6 +77,24 @@ public class SqliteRepository : IRepository
         }
     }
 
+    public Land? Find(int id)
+    { 
+        using(var context = new MyDbContext(_path))
+        {
+            try
+            {
+                var find = (from country in context.Countries
+                            where country.Id == id
+                            select country).FirstOrDefault(); //erstes Element oder null
+                return find;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+                throw;
+            }
+        }
+    }
   
 
 }
