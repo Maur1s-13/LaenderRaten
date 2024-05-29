@@ -88,6 +88,7 @@ namespace LaenderRaten.Core.ViewModels
 
             foreach (var country in laender)
             {
+                country.CountryName=  PlaceUmlate(country.CountryName);
                 this.Countries.Add(country);
             }
         }
