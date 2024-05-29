@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using LaenderRaten.Lib.Models;
 using LaenderRaten.Lib.Interfaces;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
+using CommunityToolkit.Mvvm.ComponentModel.__Internals;
 
 namespace LaenderRaten.Core.ViewModels
 {
@@ -25,10 +27,13 @@ namespace LaenderRaten.Core.ViewModels
         public string countryName;
 
         [ObservableProperty]
+        public int count;
+
+        [ObservableProperty]
         public string capitalCity;
 
         [ObservableProperty]
-        public string imageUrl;
+        public string imageURL;
 
         [ObservableProperty]
         public string continent;
@@ -39,9 +44,9 @@ namespace LaenderRaten.Core.ViewModels
         {
             this.CountryName = ReplaceUmlaute(this.CountryName);
             
-            this.ImageUrl = this.CountryName + ".png";
+            this.ImageURL = this.CountryName + ".png";
 
-            Land country = new(this.CountryName, this.CapitalCity, this.ImageUrl.ToLower(), this.Continent);
+            Land country = new(this.CountryName, this.CapitalCity, this.ImageURL.ToLower(), this.Continent);
 
             var result = _repository.Add(country);
 
@@ -53,6 +58,11 @@ namespace LaenderRaten.Core.ViewModels
             }
 
 
+        }
+
+        void AddCount()
+        {
+            var countries = _repository.GetAll();
         }
 
 

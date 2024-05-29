@@ -11,7 +11,7 @@ namespace LaenderRaten.Lib.Services;
 
 public class MyDbContext : DbContext
 {
-    DbSet<Land> Countries { get; set; }
+    public DbSet<Land> Countries { get; set; }
 
 
     private string _path = string.Empty;

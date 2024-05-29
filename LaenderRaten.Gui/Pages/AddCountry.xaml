@@ -26,7 +26,7 @@
         <Entry Text="{Binding CapitalCity}" Grid.Row="2" Placeholder="Hauptstadt"/>
         <Entry Text="{Binding Continent}"  Grid.Row="3" Placeholder="Kontinent"/>
             <Label Text="0/195" FontSize="Header" Grid.Row="0" Grid.Column="1"/>
-            <Button Text="Land hinzufügen" Grid.Row="4" BackgroundColor="#246EB9" FontAttributes="Bold" />
+            <Button Text="Land hinzufügen" Grid.Row="4" BackgroundColor="#246EB9" Command="{Binding AddCommand}" FontAttributes="Bold" />
         </Grid>
 
     </Grid>
