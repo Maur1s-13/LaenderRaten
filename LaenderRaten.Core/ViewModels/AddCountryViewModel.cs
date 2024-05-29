@@ -105,5 +105,18 @@ namespace LaenderRaten.Core.ViewModels
 
             return output;
         }
+
+        public string PlaceUmlate(string input)
+        {
+            string output = input.Replace("ae", "ä")
+                              .Replace("oe", "ö")
+                              .Replace("ue", "ü")
+                              .Replace("Ae", "Ä")
+                              .Replace("Oe", "Ö")
+                              .Replace("Ue", "Ü")
+                              .Replace("ss", "ß");
+
+            return output;
+        }
     }
 }
