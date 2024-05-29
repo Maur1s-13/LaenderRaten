@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -35,6 +36,24 @@ public class SqliteRepository
             return false;
         }
        
+    }
+
+    public bool Delete(Land land)
+    {
+        try
+        {
+            using(var context = new MyDbContext(_path))
+            {
+                context.Remove(land);
+                context.SaveChanges();
+            }
+            return true;
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine(ex.Message);
+           return false;
+        }
     }
 
 }
