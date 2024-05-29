@@ -60,9 +60,17 @@ namespace LaenderRaten.Core.ViewModels
 
         }
 
+        [RelayCommand]
         void AddCount()
         {
+            this.Count = 0;
+
             var countries = _repository.GetAll();
+
+            foreach (var country in countries)
+            {
+                this.Count += 1;
+            }
         }
 
 

@@ -1,4 +1,5 @@
-﻿using LaenderRaten.Core.ViewModels;
+﻿using CommunityToolkit.Maui;
+using LaenderRaten.Core.ViewModels;
 using LaenderRaten.Gui.Pages;
 using LaenderRaten.Lib.Interfaces;
 using LaenderRaten.Lib.Services;
@@ -13,6 +14,7 @@ namespace LaenderRaten.Gui
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
