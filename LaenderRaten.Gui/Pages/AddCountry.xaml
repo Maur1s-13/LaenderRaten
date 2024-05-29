@@ -24,7 +24,6 @@
           RowDefinitions="Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="*,*" RowSpacing="20" >
 
         
-        
         <Grid.Shadow>
             <Shadow Brush="Black"
                     Offset="10,10"

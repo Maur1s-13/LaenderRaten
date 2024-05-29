@@ -60,9 +60,12 @@ namespace LaenderRaten.Core.ViewModels
 
             if (result)
             {
+                country.CountryName = PlaceUmlate(country.CountryName);
+                this.Countries.Add(country);
                 this.CountryName = string.Empty;
                 this.CapitalCity = string.Empty;
                 this.Continent = string.Empty;
+                
             }
 
 
