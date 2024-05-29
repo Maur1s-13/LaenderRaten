@@ -10,5 +10,10 @@ namespace LaenderRaten.Core.ViewModels
     public partial class MainViewModel : ObservableObject
     {
 
+        // Leichter, Mittlerer, Schwerer Modus
+        // Land per Random
+        // Land kann nur einmal pro Runde vorkommen
+        // Feedback wie viele Länder richtig beantwortet wurden/falsch
+
     }
 }

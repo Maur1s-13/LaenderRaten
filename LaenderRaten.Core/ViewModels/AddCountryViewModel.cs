@@ -52,6 +52,8 @@ namespace LaenderRaten.Core.ViewModels
             
             this.ImageURL = this.CountryName + ".png";
 
+            // Es können nicht zweimal die gleichen Länder hinzugefügt werden
+
             Land country = new(this.CountryName, this.CapitalCity, this.ImageURL.ToLower(), this.Continent);
 
             var result = _repository.Add(country);
