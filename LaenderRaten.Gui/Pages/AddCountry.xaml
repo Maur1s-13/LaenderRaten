@@ -16,7 +16,7 @@
 
 
     <Grid BackgroundColor="White" VerticalOptions="Fill" HorizontalOptions="Fill" Margin="20, 20, 20, 20" 
-          RowDefinitions="Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="*" RowSpacing="20" >
+          RowDefinitions="Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="*,*" RowSpacing="20" >
 
         
         

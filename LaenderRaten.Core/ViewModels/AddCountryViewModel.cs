@@ -10,6 +10,7 @@ using LaenderRaten.Lib.Models;
 using LaenderRaten.Lib.Interfaces;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using CommunityToolkit.Mvvm.ComponentModel.__Internals;
+using System.Collections.ObjectModel;
 
 namespace LaenderRaten.Core.ViewModels
 {
@@ -37,6 +38,9 @@ namespace LaenderRaten.Core.ViewModels
 
         [ObservableProperty]
         public string continent;
+
+        [ObservableProperty]
+        ObservableCollection<Land> _countries;
 
 
         [RelayCommand]
@@ -70,6 +74,19 @@ namespace LaenderRaten.Core.ViewModels
             foreach (var country in countries)
             {
                 this.Count += 1;
+            }
+        }
+
+        [RelayCommand]
+        public void Load()
+        {
+            this.Countries.Clear();
+
+            var laender = _repository.GetAll();
+
+            foreach (var country in laender)
+            {
+                this.Countries.Add(country);
             }
         }
 
