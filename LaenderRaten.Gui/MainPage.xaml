@@ -17,7 +17,7 @@
     </ContentPage.Resources>
 
     <Grid IsVisible="{Binding Isplaying, Converter={StaticResource IsNullConverter}}"
-          ColumnDefinitions="Auto" VerticalOptions="Fill" RowDefinitions="Auto, Auto, Auto, Auto, Auto"
+          ColumnDefinitions="*" VerticalOptions="Fill" RowDefinitions="*, Auto, Auto, Auto, Auto"
           BackgroundColor="White"
           Margin="20,20,20,20">
 
@@ -28,8 +28,11 @@
         Opacity="0.5" />
         </Grid.Shadow>
 
-        <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="30" >
             <Label Text="Länder Quiz spielen" FontSize="Header" FontAttributes="Bold" />
+            <Button Text="Leicht" BackgroundColor="Green" TextColor="White"/>
+            <Button Text="Mittel" BackgroundColor="DarkOrange" TextColor="White"/>
+            <Button Text="Schwer" BackgroundColor="DarkRed" TextColor="White"/>
         </VerticalStackLayout>
     </Grid>
     
