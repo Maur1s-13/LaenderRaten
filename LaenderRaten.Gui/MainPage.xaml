@@ -55,12 +55,13 @@
     </Grid>
 
             <Grid IsVisible="{Binding IsplayingEasy,Converter={StaticResource IsNotNullConverter}}"
-                  ColumnDefinitions="*" RowDefinitions="Auto, Auto, Auto">
+                  ColumnDefinitions="*" RowDefinitions="Auto, Auto, Auto, Auto">
 
                 <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="30" >
-                    <Image Source="{Binding ImageURL}"/>
+                    <Image Source="{Binding ImageURL}" HeightRequest="200" WidthRequest="200"/>
                     <Entry Text="{Binding CountryName}" Placeholder="Landname"/>
-                    <Button Text="Antworten" Command="{Binding EasyCommand}"/>
+                    <Button Text="Antworten" Command="{Binding FrageEasyCommand}" CommandParameter="{Binding CountryName}"/>
+                    <Label Text="{Binding Count}"  />
                 </VerticalStackLayout>
                 
             </Grid>

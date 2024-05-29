@@ -68,24 +68,41 @@ namespace LaenderRaten.Core.ViewModels
         [RelayCommand]
         public void Easy()
         {
+            //ToLower Eingabe
+            //Umlaute!!
+            //Bild kleiner machen
+
+
             this.Isplaying = 0;
             this.IsplayingEasy = 0;
+            this.Count = 0;
 
-            Random random = new Random();
-            int gen = random.Next(0, this.Countries.Count);
+            for (int i = 0; i < this.Countries.Count; i++)
+            {
+                Random random = new Random();
+                int gen = random.Next(1, this.Countries.Count + 1);
 
-            currentCountry = _repository.Find(gen);
+                currentCountry = _repository.Find(gen);
 
-            this.ImageURL = this.currentCountry.ImageURL;
 
-            if (this.CountryName == currentCountry.CountryName)
+                this.ImageURL = this.currentCountry.ImageURL;
+
+                FrageEasy(currentCountry.CountryName);
+                
+            }
+
+        }
+
+        [RelayCommand]
+        public void FrageEasy(string name)
+        {
+            if (name == currentCountry.CountryName)
             {
                 this.Count++;
             }
-
-
-
         }
+
+
 
 
     }
