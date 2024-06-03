@@ -71,6 +71,7 @@ namespace LaenderRaten.Core.ViewModels
 
         }
 
+        #region AddCount
         [RelayCommand]
         void AddCount()
         {
@@ -83,7 +84,8 @@ namespace LaenderRaten.Core.ViewModels
                 this.Count += 1;
             }
         }
-
+        #endregion
+        #region LoadCommand
         [RelayCommand]
         public void Load()
         {
@@ -97,6 +99,7 @@ namespace LaenderRaten.Core.ViewModels
                 this.Countries.Add(country);
             }
         }
+        #endregion
 
 
         public string ReplaceUmlaute(string input)
@@ -120,7 +123,7 @@ namespace LaenderRaten.Core.ViewModels
                               .Replace("Ae", "Ä")
                               .Replace("Oe", "Ö")
                               .Replace("Ue", "Ü")
-                              .Replace("ss", "ß");
+                              
 
             return output;
         }
