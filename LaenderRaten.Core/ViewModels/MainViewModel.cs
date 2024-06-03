@@ -101,21 +101,7 @@ namespace LaenderRaten.Core.ViewModels
         public void EndGame()
         {
             _alertService.ShowAlertOption("Warnung!",
-                "Sind Sie sicher, dass sie das Quiz frühzeitig beenden wollen?", OnAlertResult );
-
-            
-
-            if (EndingGame == true)
-            {
-                this.Isplaying = null;
-                this.IsplayingEasy = null;
-                this.Count = 0;
-
-            }
-            else
-            {
-
-            }
+                "Sind Sie sicher, dass sie das Quiz frühzeitig beenden wollen?", OnAlertResult);
 
             
         }
@@ -124,11 +110,13 @@ namespace LaenderRaten.Core.ViewModels
         {
             if (accepted)
             {
-                EndingGame = true;
+                this.Isplaying = null;
+                this.IsplayingEasy = null;
+                this.Count = 0;
             }
             else
             {
-                throw new NotImplementedException();
+                
             }
         }
 
