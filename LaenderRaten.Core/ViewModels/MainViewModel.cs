@@ -19,10 +19,9 @@ namespace LaenderRaten.Core.ViewModels
         IRepository _repository = repository;
         IAlertService _alertService = alertService;
         // Leichter, Mittlerer, Schwerer Modus
-        // Land per Random
-        // Land kann nur einmal pro Runde vorkommen
-        // Feedback wie viele Länder richtig beantwortet wurden/falsch
+    
 
+        #region ObservableProperties
         [ObservableProperty]
         public int? _isplaying = null;
 
@@ -55,8 +54,9 @@ namespace LaenderRaten.Core.ViewModels
 
         [ObservableProperty]
         public string _imageURL = string.Empty;
+        #endregion
 
-       
+        #region Properties
         Land currentCountry {  get; set; }
 
         private bool EndingGame = false;
@@ -65,6 +65,7 @@ namespace LaenderRaten.Core.ViewModels
         int isPlaying { get; set; }
 
         private List<Land> remainingCountries;
+        #endregion
 
         #region loadCommand
         [RelayCommand]
@@ -85,6 +86,7 @@ namespace LaenderRaten.Core.ViewModels
         }
         #endregion
 
+        #region EasyGame
         [RelayCommand]
         public void Easy()
         {
@@ -97,14 +99,20 @@ namespace LaenderRaten.Core.ViewModels
             ShowNextCountry();
 
         }
+        #endregion
+
+        #region EndGame
         [RelayCommand]
         public void EndGame()
         {
             _alertService.ShowAlertOption("Warnung!",
                 "Sind Sie sicher, dass sie das Quiz frühzeitig beenden wollen?", OnAlertResult);
+            this.remainingCountries.Clear();
 
         }
+        #endregion
 
+        #region OnAlertResult
         private void OnAlertResult(bool accepted)
         {
             if (accepted)
@@ -118,9 +126,10 @@ namespace LaenderRaten.Core.ViewModels
                 
             }
         }
+        #endregion
 
 
-
+        #region ShowNextCountry
         private void ShowNextCountry()
         {
             if (remainingCountries.Count > 0)
@@ -143,7 +152,9 @@ namespace LaenderRaten.Core.ViewModels
                 this.Count = 0;
             }
         }
+        #endregion
 
+        #region FrageEasyAnsweredCommand
         [RelayCommand]
         public void FrageEasyAnswer(string name)
         {
@@ -159,7 +170,9 @@ namespace LaenderRaten.Core.ViewModels
                 ShowNextCountry();
             }
         }
+        #endregion
 
+        #region ReplaceUmlaute
         public string ReplaceUmlaute(string input)
         {
             string output = input.Replace("ä", "ae")
@@ -172,6 +185,7 @@ namespace LaenderRaten.Core.ViewModels
 
             return output;
         }
+        #endregion
 
 
     }

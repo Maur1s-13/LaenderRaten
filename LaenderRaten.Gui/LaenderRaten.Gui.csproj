@@ -60,6 +60,7 @@
 	  <None Remove="Resources\Fonts\PoetsenOne-Regular.ttf" />
 	  <None Remove="Resources\Images\add.svg" />
 	  <None Remove="Resources\Images\globus.svg" />
+	  <None Remove="Resources\Images\return.svg" />
 	</ItemGroup>
 
 	<ItemGroup>

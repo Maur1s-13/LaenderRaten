@@ -56,13 +56,16 @@
 
             <Grid IsVisible="{Binding IsplayingEasy,Converter={StaticResource IsNotNullConverter}}"
                   ColumnDefinitions="*" RowDefinitions="Auto, Auto, Auto, Auto">
-
+                <StackLayout HorizontalOptions="Start" VerticalOptions="Start">
+                    <ImageButton Source="return.png" Command="{Binding EndGameCommand}"/>
+                </StackLayout>
+                
                 <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="30" >
                     <Image Source="{Binding ImageURL}" HeightRequest="200" WidthRequest="200"/>
                     <Entry Text="{Binding CountryName}" Placeholder="Landname"/>
                     <Button Text="Antworten" Command="{Binding FrageEasyAnswerCommand}" CommandParameter="{Binding CountryName}"/>
                     <Button Text="Spiel beenden" Command="{Binding EndGameCommand}" />
-                    <Label Text="{Binding Count}"  />
+                    <Label Text="{Binding Count}" FontSize="Large" TextColor="Green"  />
                 </VerticalStackLayout>
                 
             </Grid>
