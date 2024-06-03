@@ -2,12 +2,14 @@
 using CommunityToolkit.Mvvm.Input;
 using LaenderRaten.Lib.Interfaces;
 using LaenderRaten.Lib.Models;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace LaenderRaten.Core.ViewModels
 {
@@ -55,8 +57,9 @@ namespace LaenderRaten.Core.ViewModels
 
        
         Land currentCountry {  get; set; }
-        int isPlaying { get; set; }
 
+        private int currentIndex { get; set; }
+        int isPlaying { get; set; }
 
         private List<Land> remainingCountries;
 
@@ -66,16 +69,15 @@ namespace LaenderRaten.Core.ViewModels
         {
             this.Countries.Clear();
 
-            
-
             var countries = _repository.GetAll();
 
             foreach (var country in countries)
             {
                 this.Countries.Add(country);
+                
             }
 
-            this.remainingCountries = new List<Land>(this.Countries);
+            
 
         }
         #endregion
@@ -83,66 +85,44 @@ namespace LaenderRaten.Core.ViewModels
         [RelayCommand]
         public void Easy()
         {
-            //ToLower Eingabe
-            //Umlaute!!
-            //Bild kleiner machen
-
-
             this.Isplaying = 0;
             this.IsplayingEasy = 0;
             this.Count = 0;
 
-            for (int i = 0; i < this.Countries.Count; i++)
-            {
-                Random random = new Random();
-                int gen = random.Next(1, this.Countries.Count + 1);
+            this.remainingCountries = new List<Land>(this.Countries);
 
-                currentCountry = _repository.Find(gen);
-
-
-                this.ImageURL = this.currentCountry.ImageURL;
-
-                FrageEasy(this.Eingabe);
-
-               
-                
-            }
+            ShowNextCountry();
 
         }
 
+        private void ShowNextCountry()
+        {
+            if (remainingCountries.Count > 0)
+            {
+                Random random = new Random();
+                int currentIndex = random.Next(0, remainingCountries.Count);
+
+                currentCountry = remainingCountries[currentIndex];
+                this.ImageURL = this.currentCountry.ImageURL;
+                remainingCountries.RemoveAt(currentIndex);
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         [RelayCommand]
-        public void FrageEasy(string name)
+        public void FrageEasyAnswer(string name)
         {
             if (name == currentCountry.CountryName)
             {
                 this.Count++;
                 ShowNextCountry();
             }
-
-            
-
-            
-        }
-
-        
-
-
-        public void ShowNextCountry()
-        {
-            if (remainingCountries.Count > 0)
-            {
-                Random random = new Random();
-                int index = random.Next(0, remainingCountries.Count);
-
-                currentCountry = remainingCountries[index];
-                this.ImageURL = this.currentCountry.ImageURL;
-
-                // Remove the selected country from the list
-                remainingCountries.RemoveAt(index);
-            }
             else
             {
-                
+                ShowNextCountry();
             }
         }
 

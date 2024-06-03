@@ -60,7 +60,7 @@
                 <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="30" >
                     <Image Source="{Binding ImageURL}" HeightRequest="200" WidthRequest="200"/>
                     <Entry Text="{Binding CountryName}" Placeholder="Landname"/>
-                    <Button Text="Antworten" Command="{Binding FrageEasyCommand}" CommandParameter="{Binding CountryName}"/>
+                    <Button Text="Antworten" Command="{Binding FrageEasyAnswerCommand}" CommandParameter="{Binding CountryName}"/>
                     <Label Text="{Binding Count}"  />
                 </VerticalStackLayout>
                 
