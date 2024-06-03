@@ -13,10 +13,11 @@ using System.Xml.Linq;
 
 namespace LaenderRaten.Core.ViewModels
 {
-    public partial class MainViewModel(IRepository repository) : ObservableObject
+    public partial class MainViewModel(IRepository repository, IAlertService alertService) : ObservableObject
     {
 
         IRepository _repository = repository;
+        IAlertService _alertService = alertService;
         // Leichter, Mittlerer, Schwerer Modus
         // Land per Random
         // Land kann nur einmal pro Runde vorkommen
@@ -108,7 +109,8 @@ namespace LaenderRaten.Core.ViewModels
             }
             else
             {
-                throw new NotImplementedException();
+                _alertService.ShowAlert("Fertig!",
+                    "Aller Länder wurden bereits beantwortet!");
             }
         }
 

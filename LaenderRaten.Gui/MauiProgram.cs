@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Maui;
 using LaenderRaten.Core.ViewModels;
 using LaenderRaten.Gui.Pages;
+using LaenderRaten.Gui.Services;
 using LaenderRaten.Lib.Interfaces;
 using LaenderRaten.Lib.Services;
 using Microsoft.Extensions.Logging;
@@ -39,6 +40,10 @@ namespace LaenderRaten.Gui
 
             builder.Services.AddSingleton<AddCountryViewModel>();
             builder.Services.AddSingleton<AddCountry>();
+
+            builder.Services.AddSingleton<IAlertService>(new AlertService());
+            
+            
 #endif
 
             return builder.Build();
