@@ -15,5 +15,5 @@ public interface IAlertService
 
     Task<bool> ShowALertAsyncOption(string title, string message);
 
-    public bool HandleAlertResult(bool accepted);
+   
 }

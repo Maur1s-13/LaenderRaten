@@ -103,7 +103,6 @@ namespace LaenderRaten.Core.ViewModels
             _alertService.ShowAlertOption("Warnung!",
                 "Sind Sie sicher, dass sie das Quiz frühzeitig beenden wollen?", OnAlertResult);
 
-            
         }
 
         private void OnAlertResult(bool accepted)
@@ -158,21 +157,6 @@ namespace LaenderRaten.Core.ViewModels
             }
         }
 
-        public void HandleAlertResult(bool accepted)
-        {
-            if (accepted)
-            {
-                _alertService.ShowAlert("Hi",
-                    "Test");
-            }
-            else
-            {
-
-            }
-        }
-
-
-
-
+       
     }
 }

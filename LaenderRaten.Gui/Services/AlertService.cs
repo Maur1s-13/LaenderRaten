@@ -45,18 +45,7 @@ public class AlertService : IAlertService
         
     }
 
-    public bool HandleAlertResult(bool accepted)
-    {
-        if (accepted)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
+   
     
 
     #endregion
