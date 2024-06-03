@@ -4,6 +4,7 @@ using LaenderRaten.Lib.Interfaces;
 using LaenderRaten.Lib.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -54,10 +55,18 @@ namespace LaenderRaten.Core.ViewModels
 
        
         Land currentCountry {  get; set; }
+        int isPlaying { get; set; }
+
+
+        private List<Land> remainingCountries;
+
+        #region loadCommand
         [RelayCommand]
         public void Load()
         {
             this.Countries.Clear();
+
+            
 
             var countries = _repository.GetAll();
 
@@ -66,8 +75,10 @@ namespace LaenderRaten.Core.ViewModels
                 this.Countries.Add(country);
             }
 
-        }
+            this.remainingCountries = new List<Land>(this.Countries);
 
+        }
+        #endregion
 
         [RelayCommand]
         public void Easy()
@@ -105,6 +116,33 @@ namespace LaenderRaten.Core.ViewModels
             if (name == currentCountry.CountryName)
             {
                 this.Count++;
+                ShowNextCountry();
+            }
+
+            
+
+            
+        }
+
+        
+
+
+        public void ShowNextCountry()
+        {
+            if (remainingCountries.Count > 0)
+            {
+                Random random = new Random();
+                int index = random.Next(0, remainingCountries.Count);
+
+                currentCountry = remainingCountries[index];
+                this.ImageURL = this.currentCountry.ImageURL;
+
+                // Remove the selected country from the list
+                remainingCountries.RemoveAt(index);
+            }
+            else
+            {
+                
             }
         }
 
