@@ -59,6 +59,8 @@ namespace LaenderRaten.Core.ViewModels
        
         Land currentCountry {  get; set; }
 
+        private bool EndingGame = false;
+
         private int currentIndex { get; set; }
         int isPlaying { get; set; }
 
@@ -95,6 +97,42 @@ namespace LaenderRaten.Core.ViewModels
             ShowNextCountry();
 
         }
+        [RelayCommand]
+        public void EndGame()
+        {
+            _alertService.ShowAlertOption("Warnung!",
+                "Sind Sie sicher, dass sie das Quiz frühzeitig beenden wollen?", OnAlertResult );
+
+            
+
+            if (EndingGame == true)
+            {
+                this.Isplaying = null;
+                this.IsplayingEasy = null;
+                this.Count = 0;
+
+            }
+            else
+            {
+
+            }
+
+            
+        }
+
+        private void OnAlertResult(bool accepted)
+        {
+            if (accepted)
+            {
+                EndingGame = true;
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+
 
         private void ShowNextCountry()
         {
@@ -109,8 +147,12 @@ namespace LaenderRaten.Core.ViewModels
             }
             else
             {
+                
                 _alertService.ShowAlert("Fertig!",
                     "Aller Länder wurden bereits beantwortet!");
+                this.Isplaying = null;
+                this.IsplayingEasy = null;
+                this.Count = 0;
             }
         }
 
@@ -125,6 +167,19 @@ namespace LaenderRaten.Core.ViewModels
             else
             {
                 ShowNextCountry();
+            }
+        }
+
+        public void HandleAlertResult(bool accepted)
+        {
+            if (accepted)
+            {
+                _alertService.ShowAlert("Hi",
+                    "Test");
+            }
+            else
+            {
+
             }
         }
 

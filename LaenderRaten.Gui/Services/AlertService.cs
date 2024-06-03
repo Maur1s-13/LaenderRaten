@@ -1,4 +1,5 @@
-﻿using LaenderRaten.Lib.Interfaces;
+﻿using LaenderRaten.Core.ViewModels;
+using LaenderRaten.Lib.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,20 +26,39 @@ public class AlertService : IAlertService
     }
     #endregion
 
+
+
     #region Option
-    public async void ShowAlertOption(string title, string message)
+    public async void ShowAlertOption(string title, string message, Action<bool> callback)
     {
         Application.Current.MainPage.Dispatcher.Dispatch(async () => {
-            await ShowALertAsyncOption(title, message);
+            bool result = await ShowALertAsyncOption(title, message);
+            callback(result);
         });
 
     }
 
-    public Task ShowALertAsyncOption(string title, string message)
+    public Task<bool> ShowALertAsyncOption(string title, string message)
     {
         return Application.Current.
                 MainPage.DisplayAlert(title, message, "OK", "Abbrechen");
+        
     }
+
+    public bool HandleAlertResult(bool accepted)
+    {
+        if (accepted)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    
+
     #endregion
 
 
