@@ -107,7 +107,7 @@ namespace LaenderRaten.Core.ViewModels
         {
             _alertService.ShowAlertOption("Warnung!",
                 "Sind Sie sicher, dass sie das Quiz frühzeitig beenden wollen?", OnAlertResult);
-            this.remainingCountries.Clear();
+            
 
         }
         #endregion
@@ -120,6 +120,7 @@ namespace LaenderRaten.Core.ViewModels
                 this.Isplaying = null;
                 this.IsplayingEasy = null;
                 this.Count = 0;
+                this.remainingCountries.Clear();
             }
             else
             {
