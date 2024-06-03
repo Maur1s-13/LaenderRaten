@@ -136,7 +136,8 @@ namespace LaenderRaten.Core.ViewModels
             {
                 
                 _alertService.ShowAlert("Fertig!",
-                    "Aller Länder wurden bereits beantwortet!");
+                    "Aller Länder wurden bereits beantwortet!" +
+                    $"Sie haben {Count} von {Countries.Count} Länder richtig beantwortet ");
                 this.Isplaying = null;
                 this.IsplayingEasy = null;
                 this.Count = 0;
@@ -146,7 +147,9 @@ namespace LaenderRaten.Core.ViewModels
         [RelayCommand]
         public void FrageEasyAnswer(string name)
         {
-            if (name == currentCountry.CountryName)
+            string altered = ReplaceUmlaute(name);
+
+            if (altered == currentCountry.CountryName)
             {
                 this.Count++;
                 ShowNextCountry();
@@ -157,6 +160,19 @@ namespace LaenderRaten.Core.ViewModels
             }
         }
 
-       
+        public string ReplaceUmlaute(string input)
+        {
+            string output = input.Replace("ä", "ae")
+                              .Replace("ö", "oe")
+                              .Replace("ü", "ue")
+                              .Replace("Ä", "Ae")
+                              .Replace("Ö", "Oe")
+                              .Replace("Ü", "Ue")
+                              .Replace("ß", "ss");
+
+            return output;
+        }
+
+
     }
 }

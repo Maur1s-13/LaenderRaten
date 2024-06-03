@@ -122,7 +122,7 @@ namespace LaenderRaten.Core.ViewModels
                               .Replace("ue", "ü")
                               .Replace("Ae", "Ä")
                               .Replace("Oe", "Ö")
-                              .Replace("Ue", "Ü")
+                              .Replace("Ue", "Ü");
                               
 
             return output;
