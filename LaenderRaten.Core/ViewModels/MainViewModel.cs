@@ -16,11 +16,10 @@ namespace LaenderRaten.Core.ViewModels
 {
     public partial class MainViewModel(IRepository repository, IAlertService alertService) : ObservableObject
     {
-
+        #region Interfaces
         IRepository _repository = repository;
         IAlertService _alertService = alertService;
-        // Leichter, Mittlerer, Schwerer Modus
-    
+        #endregion
 
         #region ObservableProperties
         [ObservableProperty]
@@ -116,10 +115,7 @@ namespace LaenderRaten.Core.ViewModels
         }
         #endregion
 
-
-        
-
-
+        #region HardGame
         [RelayCommand]
         public void Hard()
         {
@@ -130,6 +126,7 @@ namespace LaenderRaten.Core.ViewModels
             this.remainingCountries = new List<Land>(this.Countries);
             ShowNextCountry();
         }
+        #endregion
 
         #region EndGame
         [RelayCommand]
