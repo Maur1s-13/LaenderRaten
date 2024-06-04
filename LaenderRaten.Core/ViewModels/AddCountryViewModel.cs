@@ -15,9 +15,10 @@ using System.Xml;
 
 namespace LaenderRaten.Core.ViewModels
 {
-    public partial class AddCountryViewModel(IRepository repository) : ObservableObject
+    public partial class AddCountryViewModel(IRepository repository, IAlertService alertService) : ObservableObject
     {
         IRepository _repository = repository;
+        IAlertService _alertService = alertService;
         
         //Liste aller Länder anzeigen 
         //Länder die bereits hinzugefügt worden sind mit grünen Text anzeigen
@@ -55,23 +56,28 @@ namespace LaenderRaten.Core.ViewModels
 
             this.ImageURL = trimmed + ".png";
 
-            
-
-            // Es können nicht zweimal die gleichen Länder hinzugefügt werden
-
-            Land country = new(this.CountryName, this.CapitalCity, this.ImageURL.ToLower(), this.Continent); ;
-
-            var result = _repository.Add(country);
-
-            if (result)
+            if (this.Count < 195)
             {
-                country.CountryName = PlaceUmlate(country.CountryName);
-                this.Countries.Add(country);
-                this.CountryName = string.Empty;
-                this.CapitalCity = string.Empty;
-                this.Continent = string.Empty;
-                
+                Land country = new(this.CountryName, this.CapitalCity, this.ImageURL.ToLower(), this.Continent); ;
+
+                var result = _repository.Add(country);
+
+                if (result)
+                {
+                    country.CountryName = PlaceUmlate(country.CountryName);
+                    this.Countries.Add(country);
+                    this.CountryName = string.Empty;
+                    this.CapitalCity = string.Empty;
+                    this.Continent = string.Empty;
+
+                }
             }
+            else
+            {
+                _alertService.ShowAlert("Fehler!",
+                    "Es existieren nur 195 Länder");
+            }
+            
 
 
         }
@@ -113,7 +119,7 @@ namespace LaenderRaten.Core.ViewModels
         }
         #endregion
 
-
+        #region ReplaceMethods
         public string ReplaceUmlaute(string input)
         {
             string output = input.Replace("ä", "ae")
@@ -146,5 +152,6 @@ namespace LaenderRaten.Core.ViewModels
 
             return output;
         }
+        #endregion
     }
 }
