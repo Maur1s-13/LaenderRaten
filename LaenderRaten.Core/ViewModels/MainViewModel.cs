@@ -153,6 +153,9 @@ namespace LaenderRaten.Core.ViewModels
                 this.IsplayingHard = null;
                 this.Count = 0;
                 this.remainingCountries.Clear();
+                this.CountryName = "";
+                this.CapitalCity = "";
+                this.Continent = "";
             }
             else
             {

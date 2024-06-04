@@ -31,13 +31,14 @@
                     Opacity="0.5" />
         </Grid.Shadow>
 
-        <Grid Margin="10,10,10,10" Grid.ColumnSpan="1" Grid.Column="0"   RowDefinitions="Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="*, *" RowSpacing="20">
+        <Grid Margin="10,10,10,10" Grid.ColumnSpan="1" Grid.Column="0"   RowDefinitions="Auto, Auto, Auto, Auto, Auto,Auto" ColumnDefinitions="*, *" RowSpacing="20">
             <Label Text="Land hinzufügen" FontAttributes="Bold" FontSize="Header" FontFamily="PoetsenOne-Regular"/>
             <Entry Text="{Binding CountryName}" Grid.Row="1" Placeholder="Landname"/>
         <Entry Text="{Binding CapitalCity}" Grid.Row="2" Placeholder="Hauptstadt"/>
         <Entry Text="{Binding Continent}"  Grid.Row="3" Placeholder="Kontinent"/>
             <Label Text="{Binding Count, StringFormat='{0}/195'}"  HorizontalOptions="Center" FontSize="Header" Grid.Row="0" FlexLayout.AlignSelf="End" Grid.Column="1"/>
             <Button Text="Land hinzufügen" Grid.Row="4" BackgroundColor="#246EB9" Command="{Binding AddCommand}" FontAttributes="Bold" />
+            <Button Text="Land löschen" Grid.Row="5" BackgroundColor="DarkRed" Command="{Binding DeleteCommand}" FontAttributes="Bold" />
         </Grid>
 
 

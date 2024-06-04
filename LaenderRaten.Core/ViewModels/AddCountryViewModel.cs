@@ -11,6 +11,7 @@ using LaenderRaten.Lib.Interfaces;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using CommunityToolkit.Mvvm.ComponentModel.__Internals;
 using System.Collections.ObjectModel;
+using System.Xml;
 
 namespace LaenderRaten.Core.ViewModels
 {
@@ -49,14 +50,16 @@ namespace LaenderRaten.Core.ViewModels
         public void Add()
         {
             this.CountryName = ReplaceUmlaute(this.CountryName);
-            
-            this.ImageURL = this.CountryName + ".png";
 
-            this.ImageURL.Trim();
+            var trimmed = RemoveSpace(this.CountryName);
+
+            this.ImageURL = trimmed + ".png";
+
+            
 
             // Es können nicht zweimal die gleichen Länder hinzugefügt werden
 
-            Land country = new(this.CountryName, this.CapitalCity, this.ImageURL.ToLower(), this.Continent);
+            Land country = new(this.CountryName, this.CapitalCity, this.ImageURL.ToLower(), this.Continent); ;
 
             var result = _repository.Add(country);
 
@@ -77,6 +80,7 @@ namespace LaenderRaten.Core.ViewModels
         public void Delete()
         {
             _repository.Delete(Selectedcountry);
+            Countries.Remove(Selectedcountry);  
         }
 
         #region AddCount
@@ -119,6 +123,13 @@ namespace LaenderRaten.Core.ViewModels
                               .Replace("Ö", "Oe")
                               .Replace("Ü", "Ue")
                               .Replace("ß", "ss");
+
+            return output;
+        }
+
+        public string RemoveSpace(string input)
+        {
+            string output = input.Replace(" ", "");
 
             return output;
         }
