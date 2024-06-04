@@ -20,11 +20,9 @@ namespace LaenderRaten.Core.ViewModels
         IRepository _repository = repository;
         IAlertService _alertService = alertService;
         
-        //Liste aller Länder anzeigen 
-        //Länder die bereits hinzugefügt worden sind mit grünen Text anzeigen
-        //Per Imagebutton anzeigen lassen
-        //ImageSource ist gegeben png name ist name des Landes
-        //ä ö Ü ß alle zue umlaute
+        //Same country cant be added twice
+        //update Method
+        //Adding shakes to add Button when cannot be added
 
         [ObservableProperty]
         public string countryName;
@@ -47,6 +45,8 @@ namespace LaenderRaten.Core.ViewModels
         [ObservableProperty]
         Land _selectedcountry = null;
 
+        #region CRUD-Methods
+        #region Add
         [RelayCommand]
         public void Add()
         {
@@ -78,16 +78,21 @@ namespace LaenderRaten.Core.ViewModels
                     "Es existieren nur 195 Länder");
             }
             
-
-
         }
+        #endregion
 
+        #region Delete
         [RelayCommand]
         public void Delete()
         {
             _repository.Delete(Selectedcountry);
             Countries.Remove(Selectedcountry);  
         }
+        #endregion
+
+        #region Update
+        #endregion
+        #endregion
 
         #region AddCount
         [RelayCommand]
@@ -103,6 +108,7 @@ namespace LaenderRaten.Core.ViewModels
             }
         }
         #endregion
+
         #region LoadCommand
         [RelayCommand]
         public void Load()
