@@ -100,6 +100,7 @@ namespace LaenderRaten.Core.ViewModels
         }
         #endregion
 
+        #region MediumGame
         [RelayCommand]
         public void Medium()
         {
@@ -110,6 +111,7 @@ namespace LaenderRaten.Core.ViewModels
             this.remainingCountries = new List<Land>(this.Countries);
             ShowNextCountry();
         }
+        #endregion
 
         #region EndGame
         [RelayCommand]
@@ -129,6 +131,8 @@ namespace LaenderRaten.Core.ViewModels
             {
                 this.Isplaying = null;
                 this.IsplayingEasy = null;
+                this.IsplayingMedium = null;
+                this.IsplayingHard = null;
                 this.Count = 0;
                 this.remainingCountries.Clear();
             }
@@ -160,6 +164,8 @@ namespace LaenderRaten.Core.ViewModels
                     $"Sie haben {Count} von {Countries.Count} Länder richtig beantwortet ");
                 this.Isplaying = null;
                 this.IsplayingEasy = null;
+                this.IsplayingMedium = null;
+                this.IsplayingHard = null;
                 this.Count = 0;
             }
         }
@@ -176,6 +182,7 @@ namespace LaenderRaten.Core.ViewModels
             {
                 this.Count++;
                 ShowNextCountry();
+                this.CountryName = "";
             }
             else
             {
@@ -194,6 +201,8 @@ namespace LaenderRaten.Core.ViewModels
             {
                 Count++;
                 ShowNextCountry();
+                this.CountryName = "";
+                this.Continent = "";
             }
             else
             {
