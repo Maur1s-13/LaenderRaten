@@ -50,6 +50,9 @@ namespace LaenderRaten.Core.ViewModels
         [ObservableProperty]
         public string _continent = string.Empty;
 
+        
+        
+
         [ObservableProperty]
         public string _eingabe = string.Empty;
 
@@ -112,6 +115,10 @@ namespace LaenderRaten.Core.ViewModels
             ShowNextCountry();
         }
         #endregion
+
+
+        
+
 
         [RelayCommand]
         public void Hard()
@@ -198,6 +205,7 @@ namespace LaenderRaten.Core.ViewModels
             else
             {
                 ShowNextCountry();
+                this.CountryName = "";
             }
         }
         #endregion

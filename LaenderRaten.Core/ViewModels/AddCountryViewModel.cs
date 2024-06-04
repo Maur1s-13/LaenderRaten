@@ -52,6 +52,8 @@ namespace LaenderRaten.Core.ViewModels
             
             this.ImageURL = this.CountryName + ".png";
 
+            this.ImageURL.Trim();
+
             // Es können nicht zweimal die gleichen Länder hinzugefügt werden
 
             Land country = new(this.CountryName, this.CapitalCity, this.ImageURL.ToLower(), this.Continent);
@@ -69,6 +71,12 @@ namespace LaenderRaten.Core.ViewModels
             }
 
 
+        }
+
+        [RelayCommand]
+        public void Delete()
+        {
+            _repository.Delete(Selectedcountry);
         }
 
         #region AddCount

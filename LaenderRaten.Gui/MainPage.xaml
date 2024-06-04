@@ -50,7 +50,7 @@
             <Label Text="Länder Quiz spielen" FontSize="Header" FontAttributes="Bold" />
             <Button Text="Leicht" Command="{Binding EasyCommand}" BackgroundColor="Green" TextColor="White"/>
             <Button Text="Mittel" Command="{Binding MediumCommand}" BackgroundColor="DarkOrange" TextColor="White"/>
-            <Button Text="Schwer" BackgroundColor="DarkRed" TextColor="White"/>
+            <Button Text="Schwer" Command="{Binding HardCommand}" BackgroundColor="DarkRed" TextColor="White"/>
         </VerticalStackLayout>
     </Grid>
 
@@ -80,7 +80,26 @@
                     <Image Source="{Binding ImageURL}" HeightRequest="200" WidthRequest="200"/>
                     <Entry Text="{Binding CountryName}" Placeholder="Landname"/>
                     <Entry Text="{Binding Continent}" Placeholder="Kontinent"/>
-                    <Button Text="Antworten" Command="{Binding FrageMediumAnwerCommand}" CommandParameter="{Binding CountryName}"/>
+                    <Button Text="Antworten" Command="{Binding FrageMediumAnwerCommand}"/>
+
+                    <Label Text="{Binding Count}" FontSize="Large" TextColor="Green"  />
+                </VerticalStackLayout>
+
+            </Grid>
+
+
+            <Grid IsVisible="{Binding IsplayingHard,Converter={StaticResource IsNotNullConverter}}"
+        ColumnDefinitions="*" RowDefinitions="Auto, Auto, Auto, Auto">
+                <StackLayout HorizontalOptions="Start" VerticalOptions="Start">
+                    <ImageButton Source="return.png" Command="{Binding EndGameCommand}"/>
+                </StackLayout>
+
+                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="30" >
+                    <Image Source="{Binding ImageURL}" HeightRequest="200" WidthRequest="200"/>
+                    <Entry Text="{Binding CountryName}" Placeholder="Landname"/>
+                    <Entry Text="{Binding Continent}" Placeholder="Kontinent"/>
+                    <Entry Text="{Binding CapitalCity}" Placeholder="Hauptstadt"/>
+                    <Button Text="Antworten" Command="{Binding FrageHardAnswerCommand}"/>
 
                     <Label Text="{Binding Count}" FontSize="Large" TextColor="Green"  />
                 </VerticalStackLayout>
