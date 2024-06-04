@@ -100,6 +100,17 @@ namespace LaenderRaten.Core.ViewModels
         }
         #endregion
 
+        [RelayCommand]
+        public void Medium()
+        {
+            this.Isplaying = 0;
+            this.IsplayingMedium = 0;
+            this.Count = 0;
+
+            this.remainingCountries = new List<Land>(this.Countries);
+            ShowNextCountry();
+        }
+
         #region EndGame
         [RelayCommand]
         public void EndGame()
@@ -173,7 +184,7 @@ namespace LaenderRaten.Core.ViewModels
         }
         #endregion
 
-
+        #region FrageMedium
         [RelayCommand]
         public void FrageMediumAnwer()
         {
@@ -189,6 +200,7 @@ namespace LaenderRaten.Core.ViewModels
                 ShowNextCountry();
             }
         }
+        #endregion
 
         #region ReplaceUmlaute
         public string ReplaceUmlaute(string input)
