@@ -207,6 +207,8 @@ namespace LaenderRaten.Core.ViewModels
             }
             else
             {
+                _alertService.ShowAlert("Falsch!",
+                    $"Es war {PlaceUmlate(currentCountry.CountryName)} ");
                 ShowNextCountry();
                 this.CountryName = "";
             }
@@ -228,6 +230,8 @@ namespace LaenderRaten.Core.ViewModels
             }
             else
             {
+                _alertService.ShowAlert("Falsch!",
+                    $"Es war {PlaceUmlate(currentCountry.CountryName)} und {currentCountry.Continent}");
                 this.CountryName = "";
                 this.Continent = "";
                 ShowNextCountry();
@@ -253,6 +257,8 @@ namespace LaenderRaten.Core.ViewModels
             }
             else
             {
+                _alertService.ShowAlert("Falsch!",
+                    $"Es war {PlaceUmlate(currentCountry.CountryName)}, {currentCountry.Continent} und {currentCountry.CapitalCity} ");
                 this.CountryName = "";
                 this.CapitalCity = "";
                 this.Continent = "";
@@ -262,7 +268,7 @@ namespace LaenderRaten.Core.ViewModels
         }
         #endregion
 
-        #region ReplaceUmlaute
+        #region ReplaceMethods
         public string ReplaceUmlaute(string input)
         {
             string output = input.Replace("ä", "ae")
@@ -272,6 +278,19 @@ namespace LaenderRaten.Core.ViewModels
                               .Replace("Ö", "Oe")
                               .Replace("Ü", "Ue")
                               .Replace("ß", "ss");
+
+            return output;
+        }
+
+        public string PlaceUmlate(string input)
+        {
+            string output = input.Replace("ae", "ä")
+                              .Replace("oe", "ö")
+                              .Replace("ue", "ü")
+                              .Replace("Ae", "Ä")
+                              .Replace("Oe", "Ö")
+                              .Replace("Ue", "Ü");
+
 
             return output;
         }
