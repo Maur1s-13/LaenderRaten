@@ -213,6 +213,31 @@ namespace LaenderRaten.Core.ViewModels
         }
         #endregion
 
+        [RelayCommand]
+        public void FrageHardAnswer()
+        {
+            string alteredName = ReplaceUmlaute(this.CountryName);
+
+            if (alteredName == currentCountry.CountryName && 
+                this.Continent == currentCountry.Continent &&
+                this.CapitalCity == currentCountry.CapitalCity)
+            {
+                Count++;
+                ShowNextCountry();
+                this.CountryName = "";
+                this.Continent = "";
+                this.CapitalCity = "";
+            }
+            else
+            {
+                this.CountryName = "";
+                this.CapitalCity = "";
+                this.Continent = "";
+                ShowNextCountry();
+            }
+
+        }
+
         #region ReplaceUmlaute
         public string ReplaceUmlaute(string input)
         {
