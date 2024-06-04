@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -81,8 +82,6 @@ namespace LaenderRaten.Core.ViewModels
                 
             }
 
-            
-
         }
         #endregion
 
@@ -156,6 +155,7 @@ namespace LaenderRaten.Core.ViewModels
         #endregion
 
         #region FrageEasyAnsweredCommand
+
         [RelayCommand]
         public void FrageEasyAnswer(string name)
         {
@@ -172,6 +172,23 @@ namespace LaenderRaten.Core.ViewModels
             }
         }
         #endregion
+
+
+        [RelayCommand]
+        public void FrageMediumAnwer()
+        {
+            string alteredName = ReplaceUmlaute(this.CountryName);
+
+            if (alteredName == currentCountry.CountryName && this.Continent == currentCountry.Continent)
+            {
+                Count++;
+                ShowNextCountry();
+            }
+            else
+            {
+                ShowNextCountry();
+            }
+        }
 
         #region ReplaceUmlaute
         public string ReplaceUmlaute(string input)
