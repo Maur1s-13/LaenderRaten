@@ -4,7 +4,9 @@ using LaenderRaten.Gui.Pages;
 using LaenderRaten.Gui.Services;
 using LaenderRaten.Lib.Interfaces;
 using LaenderRaten.Lib.Services;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Plugin.Maui.Audio;
 
 namespace LaenderRaten.Gui
 {
@@ -30,7 +32,8 @@ namespace LaenderRaten.Gui
             System.Diagnostics.Debug.WriteLine(path);
 
             builder.Services.AddSingleton<IRepository>(new SqliteRepository(fullpath));
-
+            builder.Services.AddSingleton<ISoundService>(new AudioViewModel(AudioManager.Current));
+            builder.Services.AddSingleton<IAlertService>(new AlertService());
 
 #if DEBUG
             builder.Logging.AddDebug();
@@ -41,7 +44,7 @@ namespace LaenderRaten.Gui
             builder.Services.AddSingleton<AddCountryViewModel>();
             builder.Services.AddSingleton<AddCountry>();
 
-            builder.Services.AddSingleton<IAlertService>(new AlertService());
+            
             
             
 #endif

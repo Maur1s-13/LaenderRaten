@@ -17,7 +17,7 @@ namespace LaenderRaten.Core.ViewModels
     public partial class MainViewModel(IRepository repository, IAlertService alertService) : ObservableObject
     {
 
-        //Adding Sounds
+        
         //Wanting to add Shake animation to Entry when answered wrong
         //Wanting to add Red Border when to Entry when answered wrong
 
