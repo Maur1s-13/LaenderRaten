@@ -98,6 +98,7 @@
                     <Button Text="Antworten" Command="{Binding FrageEasyAnswerCommand}" CommandParameter="{Binding CountryName}"/>
                     
                     <Label Text="{Binding Count}" FontSize="Large" TextColor="Green"  />
+                    <Label Text="{Binding CountriesLeft, StringFormat='Verbleibende Länder: {0}'}" FontSize="Large" TextColor="Black"  />
                 </VerticalStackLayout>
                 
             </Grid>
@@ -146,6 +147,7 @@ RelativeSource AncestorType={x:Type viewmodels:MainViewModel
                     <Button Text="Antworten" Command="{Binding FrageMediumAnwerCommand}"/>
 
                     <Label Text="{Binding Count}" FontSize="Large" TextColor="Green"  />
+                    <Label Text="{Binding CountriesLeft, StringFormat='Verbleibende Länder: {0}'}" FontSize="Large" TextColor="Black"  />
                 </VerticalStackLayout>
 
             </Grid>
@@ -196,6 +198,7 @@ RelativeSource AncestorType={x:Type viewmodels:MainViewModel
                     <Button Text="Antworten" Command="{Binding FrageHardAnswerCommand}"/>
 
                     <Label Text="{Binding Count}" FontSize="Large" TextColor="Green"  />
+                    <Label Text="{Binding CountriesLeft, StringFormat='Verbleibende Länder: {0}'}" FontSize="Large" TextColor="Black"  />
                 </VerticalStackLayout>
 
             </Grid>

@@ -34,6 +34,9 @@ namespace LaenderRaten.Core.ViewModels
         public int? _isplaying = null;
 
         [ObservableProperty]
+        public int _countriesLeft;
+
+        [ObservableProperty]
         public int? _isplayingEasy = null;
 
         [ObservableProperty]
@@ -60,9 +63,6 @@ namespace LaenderRaten.Core.ViewModels
         [ObservableProperty]
         public bool mute = false;
 
-        
-        
-
         [ObservableProperty]
         public string _eingabe = string.Empty;
 
@@ -78,10 +78,13 @@ namespace LaenderRaten.Core.ViewModels
         private int currentIndex { get; set; }
         int isPlaying { get; set; }
 
-        private List<Land> remainingCountries;
+        public List<Land> remainingCountries;
+
+        
         #endregion
 
         #region Methods
+
         #region loadCommand
         [RelayCommand]
         public void Load()
@@ -106,8 +109,15 @@ namespace LaenderRaten.Core.ViewModels
             this.Isplaying = 0;
             this.IsplayingEasy = 0;
             this.Count = 0;
+            this.CountriesLeft = 0;
 
             this.remainingCountries = new List<Land>(this.Countries);
+
+            foreach (var country in this.remainingCountries)
+            {
+                this.CountriesLeft++;
+            }
+            this.CountriesLeft += 1;
 
             ShowNextCountry();
 
@@ -123,6 +133,12 @@ namespace LaenderRaten.Core.ViewModels
             this.Count = 0;
 
             this.remainingCountries = new List<Land>(this.Countries);
+            foreach (var country in this.remainingCountries)
+            {
+                this.CountriesLeft++;
+            }
+            this.CountriesLeft += 1;
+
             ShowNextCountry();
         }
         #endregion
@@ -136,6 +152,12 @@ namespace LaenderRaten.Core.ViewModels
             this.Count = 0;
 
             this.remainingCountries = new List<Land>(this.Countries);
+            foreach (var country in this.remainingCountries)
+            {
+                this.CountriesLeft++;
+            }
+            this.CountriesLeft += 1;
+
             ShowNextCountry();
         }
         #endregion
@@ -161,6 +183,7 @@ namespace LaenderRaten.Core.ViewModels
                 this.IsplayingMedium = null;
                 this.IsplayingHard = null;
                 this.Count = 0;
+                this.CountriesLeft = 0;
                 this.remainingCountries.Clear();
                 this.CountryName = "";
                 this.CapitalCity = "";
@@ -184,18 +207,20 @@ namespace LaenderRaten.Core.ViewModels
                 currentCountry = remainingCountries[currentIndex];
                 this.ImageURL = this.currentCountry.ImageURL;
                 remainingCountries.RemoveAt(currentIndex);
+                this.CountriesLeft--;
             }
             else
             {
                 
                 _alertService.ShowAlert("Fertig!",
-                    "Aller Länder wurden bereits beantwortet!" +
+                    "Aller Länder wurden bereits beantwortet!\n" +
                     $"Sie haben {Count} von {Countries.Count} Länder richtig beantwortet ");
                 this.Isplaying = null;
                 this.IsplayingEasy = null;
                 this.IsplayingMedium = null;
                 this.IsplayingHard = null;
                 this.Count = 0;
+                this.CountriesLeft = 0;
             }
         }
         #endregion
@@ -328,6 +353,7 @@ namespace LaenderRaten.Core.ViewModels
         }
 
         #endregion
+
         #endregion
 
     }
