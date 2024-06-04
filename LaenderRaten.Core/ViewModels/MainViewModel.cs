@@ -14,17 +14,19 @@ using System.Xml.Linq;
 
 namespace LaenderRaten.Core.ViewModels
 {
-    public partial class MainViewModel(IRepository repository, IAlertService alertService) : ObservableObject
+    public partial class MainViewModel(IRepository repository, IAlertService alertService, ISoundService soundservice) : ObservableObject
     {
 
         
         //Wanting to add Shake animation to Entry when answered wrong
         //Wanting to add Red Border when to Entry when answered wrong
+        //Adding Timer
 
 
         #region Interfaces
         IRepository _repository = repository;
         IAlertService _alertService = alertService;
+        ISoundService _soundService = soundservice;
         #endregion
 
         #region ObservableProperties
@@ -55,6 +57,9 @@ namespace LaenderRaten.Core.ViewModels
         [ObservableProperty]
         public string _continent = string.Empty;
 
+        [ObservableProperty]
+        public bool mute = false;
+
         
         
 
@@ -76,6 +81,7 @@ namespace LaenderRaten.Core.ViewModels
         private List<Land> remainingCountries;
         #endregion
 
+        #region Methods
         #region loadCommand
         [RelayCommand]
         public void Load()
@@ -167,7 +173,6 @@ namespace LaenderRaten.Core.ViewModels
         }
         #endregion
 
-
         #region ShowNextCountry
         private void ShowNextCountry()
         {
@@ -207,13 +212,16 @@ namespace LaenderRaten.Core.ViewModels
                 this.Count++;
                 ShowNextCountry();
                 this.CountryName = "";
+                _soundService.PlayAudioCorrect();
             }
             else
             {
+                _soundService.PlayAudioFail();
                 _alertService.ShowAlert("Falsch!",
                     $"Es war {PlaceUmlate(currentCountry.CountryName)} ");
                 ShowNextCountry();
                 this.CountryName = "";
+                
             }
         }
         #endregion
@@ -226,6 +234,7 @@ namespace LaenderRaten.Core.ViewModels
 
             if (alteredName == currentCountry.CountryName && this.Continent == currentCountry.Continent)
             {
+                _soundService.PlayAudioCorrect();
                 Count++;
                 ShowNextCountry();
                 this.CountryName = "";
@@ -233,6 +242,7 @@ namespace LaenderRaten.Core.ViewModels
             }
             else
             {
+                _soundService.PlayAudioFail();
                 _alertService.ShowAlert("Falsch!",
                     $"Es war {PlaceUmlate(currentCountry.CountryName)} und {currentCountry.Continent}");
                 this.CountryName = "";
@@ -252,6 +262,7 @@ namespace LaenderRaten.Core.ViewModels
                 this.Continent == currentCountry.Continent &&
                 this.CapitalCity == currentCountry.CapitalCity)
             {
+                _soundService.PlayAudioCorrect();
                 Count++;
                 ShowNextCountry();
                 this.CountryName = "";
@@ -260,6 +271,7 @@ namespace LaenderRaten.Core.ViewModels
             }
             else
             {
+                _soundService.PlayAudioFail();
                 _alertService.ShowAlert("Falsch!",
                     $"Es war {PlaceUmlate(currentCountry.CountryName)}, {currentCountry.Continent} und {currentCountry.CapitalCity} ");
                 this.CountryName = "";
@@ -299,6 +311,24 @@ namespace LaenderRaten.Core.ViewModels
         }
         #endregion
 
+        #region MuteSound
+        [RelayCommand]
+        public void MuteSound()
+        {
+            if (Mute == false)
+            {
+                Mute = true;
+                _soundService.MuteSound(Mute);
+            }
+            else
+            {
+                Mute = false;
+                _soundService.MuteSound(Mute);
+            }
+        }
+
+        #endregion
+        #endregion
 
     }
 }

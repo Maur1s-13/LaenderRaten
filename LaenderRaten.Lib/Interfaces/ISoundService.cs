@@ -8,7 +8,7 @@ namespace LaenderRaten.Lib.Interfaces
 {
     public interface ISoundService
     {
-        public  void PlaAudioCorrect();
+        public void PlayAudioCorrect();
 
         public void MuteSound(bool mute);
 

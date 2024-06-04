@@ -10,7 +10,7 @@ public class AudioViewModel(IAudioManager audioManager) : ISoundService
 
     public bool Mute;
 
-    public async void PlaAudioCorrect()
+    public async void PlayAudioCorrect()
     {
         if (Mute == false)
         {

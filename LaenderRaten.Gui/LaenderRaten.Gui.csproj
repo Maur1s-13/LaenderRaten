@@ -61,6 +61,8 @@
 	  <None Remove="Resources\Images\add.svg" />
 	  <None Remove="Resources\Images\globus.svg" />
 	  <None Remove="Resources\Images\return.svg" />
+	  <None Remove="Resources\Images\soundOff.svg" />
+	  <None Remove="Resources\Images\soundOn.svg" />
 	  <None Remove="Resources\raw\correct-answer.mp3" />
 	  <None Remove="Resources\Raw\wrong-answer.mp3" />
 	</ItemGroup>
