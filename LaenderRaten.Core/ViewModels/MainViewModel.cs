@@ -113,6 +113,17 @@ namespace LaenderRaten.Core.ViewModels
         }
         #endregion
 
+        [RelayCommand]
+        public void Hard()
+        {
+            this.Isplaying = 0;
+            this.IsplayingHard = 0;
+            this.Count = 0;
+
+            this.remainingCountries = new List<Land>(this.Countries);
+            ShowNextCountry();
+        }
+
         #region EndGame
         [RelayCommand]
         public void EndGame()
@@ -213,6 +224,7 @@ namespace LaenderRaten.Core.ViewModels
         }
         #endregion
 
+        #region FrageHardAnswert
         [RelayCommand]
         public void FrageHardAnswer()
         {
@@ -237,6 +249,7 @@ namespace LaenderRaten.Core.ViewModels
             }
 
         }
+        #endregion
 
         #region ReplaceUmlaute
         public string ReplaceUmlaute(string input)
