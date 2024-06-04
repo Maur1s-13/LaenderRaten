@@ -206,6 +206,8 @@ namespace LaenderRaten.Core.ViewModels
             }
             else
             {
+                this.CountryName = "";
+                this.Continent = "";
                 ShowNextCountry();
             }
         }
