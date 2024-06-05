@@ -91,6 +91,15 @@ namespace LaenderRaten.Core.ViewModels
         #endregion
 
         #region Update
+        [RelayCommand]
+        public void Update()
+        {
+            var land = Selectedcountry;
+
+            _repository.Update(land);
+            _alertService.ShowAlert("Erfolg",
+                "Land wurde ausgebessert!");
+        }
         #endregion
         #endregion
 

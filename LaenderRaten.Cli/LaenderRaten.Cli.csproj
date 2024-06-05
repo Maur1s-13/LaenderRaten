@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LaenderRaten.Core\LaenderRaten.Core.csproj" />
+    <ProjectReference Include="..\LaenderRaten.Lib\LaenderRaten.Lib.csproj" />
+  </ItemGroup>
+
 </Project>

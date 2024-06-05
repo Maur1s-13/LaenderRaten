@@ -95,6 +95,39 @@ public class SqliteRepository : IRepository
             }
         }
     }
-  
+
+    public bool Update(Land land)
+    {
+        try
+        {
+            using (var context = new MyDbContext(_path))
+            {
+                var existingCountry = context.Countries.FirstOrDefault(c => c.Id == land.Id);
+
+                if (existingCountry == null)
+                {
+                    return false;
+                }
+
+                existingCountry.CountryName = land.CountryName;
+                existingCountry.CapitalCity = land.CapitalCity;
+                existingCountry.Continent = land.CapitalCity;
+                
+                
+                
+
+                context.SaveChanges();
+            }
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+
+            System.Diagnostics.Debug.WriteLine(ex.Message);
+            return false;
+        }
+    }
+
 
 }

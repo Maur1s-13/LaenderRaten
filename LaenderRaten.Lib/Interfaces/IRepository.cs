@@ -13,6 +13,7 @@ namespace LaenderRaten.Lib.Interfaces
         public bool Delete(Land land);
         public List<Land> GetAll();
 
+        public bool Update(Land land);
         public Land? Find(int id);
     }
 }

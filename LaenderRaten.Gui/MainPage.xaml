@@ -56,9 +56,11 @@
     </Grid>
 
             <Grid IsVisible="{Binding IsplayingEasy,Converter={StaticResource IsNotNullConverter}}"
-                  ColumnDefinitions="*" RowDefinitions="Auto, Auto, Auto, Auto">
+                  ColumnDefinitions="*" RowDefinitions="Auto, Auto, Auto, Auto"
+                  BackgroundColor="#ECE7E7"
+                  >
                 <StackLayout HorizontalOptions="Start" VerticalOptions="Start">
-                    <ImageButton Source="return.png" Command="{Binding EndGameCommand}"/>
+                    <ImageButton Source="return.png" BackgroundColor="#ECE7E7" Command="{Binding EndGameCommand}"/>
                     <Image  VerticalOptions="Center"
                             Source="soundoff.png"
                             IsVisible="{Binding Mute}"
@@ -92,7 +94,8 @@
                     </Image>
                 </StackLayout>
                 
-                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="30" >
+                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="30"
+                                     >
                     <Image Source="{Binding ImageURL}" HeightRequest="200" WidthRequest="200"/>
                     <Entry Text="{Binding CountryName}" Placeholder="Landname"/>
                     <Button Text="Antworten" Command="{Binding FrageEasyAnswerCommand}" CommandParameter="{Binding CountryName}"/>
@@ -104,9 +107,10 @@
             </Grid>
 
             <Grid IsVisible="{Binding IsplayingMedium,Converter={StaticResource IsNotNullConverter}}"
-        ColumnDefinitions="*" RowDefinitions="Auto, Auto, Auto, Auto">
+        ColumnDefinitions="*" RowDefinitions="Auto, Auto, Auto, Auto"
+                  BackgroundColor="#ECE7E7">
                 <StackLayout HorizontalOptions="Start" VerticalOptions="Start">
-                    <ImageButton Source="return.png" Command="{Binding EndGameCommand}"/>
+                    <ImageButton Source="return.png" BackgroundColor="#ECE7E7" Command="{Binding EndGameCommand}"/>
                     <Image  VerticalOptions="Center"
                 Source="soundoff.png"
                 IsVisible="{Binding Mute}"
@@ -154,9 +158,10 @@ RelativeSource AncestorType={x:Type viewmodels:MainViewModel
 
 
             <Grid IsVisible="{Binding IsplayingHard,Converter={StaticResource IsNotNullConverter}}"
-        ColumnDefinitions="*" RowDefinitions="Auto, Auto, Auto, Auto">
+        ColumnDefinitions="*" RowDefinitions="Auto, Auto, Auto, Auto"
+                  BackgroundColor="#ECE7E7">
                 <StackLayout HorizontalOptions="Start" VerticalOptions="Start">
-                    <ImageButton Source="return.png" Command="{Binding EndGameCommand}"/>
+                    <ImageButton Source="return.png" BackgroundColor="#ECE7E7" Command="{Binding EndGameCommand}"/>
                     <Image  VerticalOptions="Center"
                 Source="soundoff.png"
                 IsVisible="{Binding Mute}"
