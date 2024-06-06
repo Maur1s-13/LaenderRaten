@@ -542,7 +542,7 @@ public class UseCountries : ILoadRepository
         Land c173 = new("Thailand", "Bangkok", "thailand.png", "Asien");
         _sqlrepsitory.Add(c173);
 
-        Land c174 = new("Timor-Leste", "Dili", "timorleste.png", "Asien");
+        Land c174 = new("Osttimor", "Dili", "osttimor.png", "Asien");
         _sqlrepsitory.Add(c174);
 
         Land c175 = new("Togo", "Lomé", "togo.png", "Afrika");

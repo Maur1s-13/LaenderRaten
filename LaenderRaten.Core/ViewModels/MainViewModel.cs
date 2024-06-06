@@ -10,17 +10,21 @@ using System.Linq;
 using System.Security;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Xml.Linq;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace LaenderRaten.Core.ViewModels
 {
     public partial class MainViewModel(IRepository repository, IAlertService alertService, ISoundService soundservice) : ObservableObject
     {
 
-        
+
         //Wanting to add Shake animation to Entry when answered wrong
         //Wanting to add Red Border when to Entry when answered wrong
         //Adding Timer
+
+
 
 
         #region Interfaces
@@ -230,9 +234,9 @@ namespace LaenderRaten.Core.ViewModels
         [RelayCommand]
         public void FrageEasyAnswer(string name)
         {
-            string altered = ReplaceUmlaute(name);
+            
 
-            if (altered == currentCountry.CountryName)
+            if (this.CountryName == currentCountry.CountryName)
             {
                 this.Count++;
                 ShowNextCountry();
@@ -255,9 +259,9 @@ namespace LaenderRaten.Core.ViewModels
         [RelayCommand]
         public void FrageMediumAnwer()
         {
-            string alteredName = ReplaceUmlaute(this.CountryName);
+            
 
-            if (alteredName == currentCountry.CountryName && this.Continent == currentCountry.Continent)
+            if (this.CountryName == currentCountry.CountryName && this.Continent == currentCountry.Continent)
             {
                 _soundService.PlayAudioCorrect();
                 Count++;
@@ -277,13 +281,12 @@ namespace LaenderRaten.Core.ViewModels
         }
         #endregion
 
-        #region FrageHardAnswert
+        #region FrageHardAnswer
         [RelayCommand]
         public void FrageHardAnswer()
         {
-            string alteredName = ReplaceUmlaute(this.CountryName);
-
-            if (alteredName == currentCountry.CountryName && 
+            
+            if (this.CountryName == currentCountry.CountryName && 
                 this.Continent == currentCountry.Continent &&
                 this.CapitalCity == currentCountry.CapitalCity)
             {
@@ -352,6 +355,10 @@ namespace LaenderRaten.Core.ViewModels
             }
         }
 
+        #endregion
+
+        #region Timer
+        
         #endregion
 
         #endregion

@@ -94,9 +94,9 @@
                     </Image>
                 </StackLayout>
                 
-                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="30"
+                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="30" 
                                      >
-                    <Image Source="{Binding ImageURL}" HeightRequest="200" WidthRequest="200"/>
+                    <Image  Source="{Binding ImageURL}" HeightRequest="200" WidthRequest="200" />
                     <Entry Text="{Binding CountryName}" Placeholder="Landname"/>
                     <Button Text="Antworten" BackgroundColor="#246EB9" Command="{Binding FrageEasyAnswerCommand}" CommandParameter="{Binding CountryName}"/>
                     
