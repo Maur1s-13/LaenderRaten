@@ -98,7 +98,7 @@
                                      >
                     <Image Source="{Binding ImageURL}" HeightRequest="200" WidthRequest="200"/>
                     <Entry Text="{Binding CountryName}" Placeholder="Landname"/>
-                    <Button Text="Antworten" BackgroundColor="246EB9" Command="{Binding FrageEasyAnswerCommand}" CommandParameter="{Binding CountryName}"/>
+                    <Button Text="Antworten" BackgroundColor="#246EB9" Command="{Binding FrageEasyAnswerCommand}" CommandParameter="{Binding CountryName}"/>
                     
                     <Label Text="{Binding Count}" FontSize="Large" TextColor="Green"  />
                     <Label Text="{Binding CountriesLeft, StringFormat='Verbleibende Länder: {0}'}" FontSize="Large" TextColor="Black"  />

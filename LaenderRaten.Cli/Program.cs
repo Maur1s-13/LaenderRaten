@@ -450,6 +450,10 @@ _sqlrepsitory.Add(c146);
 Land c147 = new("St. Lucia", "Castries", "stlucia.png", "Nordamerika");
 _sqlrepsitory.Add(c147);
 
+Land c148 = new("St. Vincent und die Grenadinen", "Kingstown", "stvincentunddiegrenadinen.png", "Nordamerika");
+_sqlrepsitory.Add(c148);
+
+
 Land c149 = new("Samoa", "Apia", "samoa.png", "Australien");
 _sqlrepsitory.Add(c149);
 
