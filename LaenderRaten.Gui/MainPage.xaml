@@ -57,10 +57,10 @@
 
             <Grid IsVisible="{Binding IsplayingEasy,Converter={StaticResource IsNotNullConverter}}"
                   ColumnDefinitions="*" RowDefinitions="Auto, Auto, Auto, Auto"
-                  BackgroundColor="#ECE7E7"
+                  BackgroundColor="White"
                   >
                 <StackLayout HorizontalOptions="Start" VerticalOptions="Start">
-                    <ImageButton Source="return.png" BackgroundColor="#ECE7E7" Command="{Binding EndGameCommand}"/>
+                    <ImageButton Source="return.png" BackgroundColor="White" Command="{Binding EndGameCommand}"/>
                     <Image  VerticalOptions="Center"
                             Source="soundoff.png"
                             IsVisible="{Binding Mute}"
@@ -96,7 +96,16 @@
                 
                 <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="30" 
                                      >
-                    <Image  Source="{Binding ImageURL}" HeightRequest="200" WidthRequest="200" />
+                    <Image  Source="{Binding ImageURL}" HeightRequest="200" WidthRequest="200" >
+                        <Image.Shadow>
+                            
+                                <Shadow Brush="Black"
+                                         Offset="10,10"
+                                         Radius="20"
+                                         Opacity="0.5" />
+                            </Image.Shadow>
+                        
+                    </Image>
                     <Entry Text="{Binding CountryName}" Placeholder="Landname"/>
                     <Button Text="Antworten" BackgroundColor="#246EB9" Command="{Binding FrageEasyAnswerCommand}" CommandParameter="{Binding CountryName}"/>
                     
@@ -108,9 +117,9 @@
 
             <Grid IsVisible="{Binding IsplayingMedium,Converter={StaticResource IsNotNullConverter}}"
         ColumnDefinitions="*" RowDefinitions="Auto, Auto, Auto, Auto"
-                  BackgroundColor="#ECE7E7">
+                  BackgroundColor="White">
                 <StackLayout HorizontalOptions="Start" VerticalOptions="Start">
-                    <ImageButton Source="return.png" BackgroundColor="#ECE7E7" Command="{Binding EndGameCommand}"/>
+                    <ImageButton Source="return.png" BackgroundColor="White" Command="{Binding EndGameCommand}"/>
                     <Image  VerticalOptions="Center"
                 Source="soundoff.png"
                 IsVisible="{Binding Mute}"
@@ -145,7 +154,14 @@ RelativeSource AncestorType={x:Type viewmodels:MainViewModel
                 </StackLayout>
 
                 <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="30" >
-                    <Image Source="{Binding ImageURL}" HeightRequest="200" WidthRequest="200"/>
+                    <Image Source="{Binding ImageURL}" HeightRequest="200" WidthRequest="200">
+                        <Image.Shadow>
+                            <Shadow Brush="Black"
+                                Offset="10,10"
+                                Radius="20"
+                                Opacity="0.5" />
+                        </Image.Shadow>
+                    </Image>
                     <Entry Text="{Binding CountryName}" Placeholder="Landname"/>
                     <Entry Text="{Binding Continent}" Placeholder="Kontinent"/>
                     <Button Text="Antworten" BackgroundColor="#246EB9" Command="{Binding FrageMediumAnwerCommand}"/>
@@ -159,9 +175,9 @@ RelativeSource AncestorType={x:Type viewmodels:MainViewModel
 
             <Grid IsVisible="{Binding IsplayingHard,Converter={StaticResource IsNotNullConverter}}"
         ColumnDefinitions="*" RowDefinitions="Auto, Auto, Auto, Auto"
-                  BackgroundColor="#ECE7E7">
+                  BackgroundColor="White">
                 <StackLayout HorizontalOptions="Start" VerticalOptions="Start">
-                    <ImageButton Source="return.png" BackgroundColor="#ECE7E7" Command="{Binding EndGameCommand}"/>
+                    <ImageButton Source="return.png" BackgroundColor="White" Command="{Binding EndGameCommand}"/>
                     <Image  VerticalOptions="Center"
                 Source="soundoff.png"
                 IsVisible="{Binding Mute}"
@@ -196,7 +212,15 @@ RelativeSource AncestorType={x:Type viewmodels:MainViewModel
                 </StackLayout>
 
                 <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="30" >
-                    <Image Source="{Binding ImageURL}" HeightRequest="200" WidthRequest="200"/>
+                    <Image Source="{Binding ImageURL}" HeightRequest="200" WidthRequest="200">
+                        <Image.Shadow>
+
+                            <Shadow Brush="Black"
+                                Offset="10,10"
+                                Radius="20"
+                                Opacity="0.5" />
+                        </Image.Shadow>     
+                    </Image>
                     <Entry Text="{Binding CountryName}" Placeholder="Landname"/>
                     <Entry Text="{Binding Continent}" Placeholder="Kontinent"/>
                     <Entry Text="{Binding CapitalCity}" Placeholder="Hauptstadt"/>
