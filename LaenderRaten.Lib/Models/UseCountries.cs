@@ -13,6 +13,11 @@ public class UseCountries : ILoadRepository
     IRepository _sqlrepsitory = new SqliteRepository("C:\\Users\\thoma\\AppData\\Local\\Packages\\com.companyname.laenderraten.gui_9zz4h110yvjzm\\LocalState\\data.sqlite");
     IInputRepository _inputrepository;
 
+    string _path = string.Empty;
+    public UseCountries(string path)
+    {
+        _path = path;
+    }
 
     public List<Land> LoadAll()
     {
@@ -20,43 +25,33 @@ public class UseCountries : ILoadRepository
 
         Land c1 = new("Afghanistan", "Kabul", "afghanistan.png", "Asien");
         _sqlrepsitory.Add(c1);
-        
 
         Land c2 = new("Albanien", "Tirana", "albanien.png", "Europa");
         _sqlrepsitory.Add(c2);
-        
 
         Land c3 = new("Algerien", "Algier", "algerien.png", "Afrika");
         _sqlrepsitory.Add(c3);
-        
 
         Land c4 = new("Andorra", "Andorra la Vella", "andorra.png", "Europa");
         _sqlrepsitory.Add(c4);
-        
 
         Land c5 = new("Angola", "Luanda", "angola.png", "Afrika");
         _sqlrepsitory.Add(c5);
-        
 
         Land c6 = new("Antigua und Barbuda", "Saint John’s", "antiguaundbarbuda.png", "Nordamerika");
         _sqlrepsitory.Add(c6);
-        lands.Add(c6);
 
         Land c7 = new("Argentinien", "Buenos Aires", "argentinien.png", "Suedamerika");
         _sqlrepsitory.Add(c7);
-        
 
         Land c8 = new("Armenien", "Jerewan", "armenien.png", "Asien/Europa");
-        
-        
+        _sqlrepsitory.Add(c8);
 
         Land c9 = new("Australien", "Canberra", "australien.png", "Australien");
         _sqlrepsitory.Add(c9);
-        
 
         Land c10 = new("Oesterreich", "Wien", "oesterreich.png", "Europa");
         _sqlrepsitory.Add(c10);
-        
 
         Land c11 = new("Aserbaidschan", "Baku", "aserbaidschan.png", "Asien/Europa");
         _sqlrepsitory.Add(c11);
@@ -471,7 +466,6 @@ public class UseCountries : ILoadRepository
 
         Land c148 = new("St. Vincent und die Grenadinen", "Kingstown", "stvincentunddiegrenadinen.png", "Nordamerika");
         _sqlrepsitory.Add(c148);
-
 
         Land c149 = new("Samoa", "Apia", "samoa.png", "Australien");
         _sqlrepsitory.Add(c149);

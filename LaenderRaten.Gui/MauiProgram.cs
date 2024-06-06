@@ -3,6 +3,7 @@ using LaenderRaten.Core.ViewModels;
 using LaenderRaten.Gui.Pages;
 using LaenderRaten.Gui.Services;
 using LaenderRaten.Lib.Interfaces;
+using LaenderRaten.Lib.Models;
 using LaenderRaten.Lib.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -32,6 +33,7 @@ namespace LaenderRaten.Gui
             System.Diagnostics.Debug.WriteLine(path);
 
             builder.Services.AddSingleton<IRepository>(new SqliteRepository(fullpath));
+            builder.Services.AddSingleton<ILoadRepository>(new UseCountries(fullpath));
             builder.Services.AddSingleton<ISoundService>(new AudioViewModel(AudioManager.Current));
             builder.Services.AddSingleton<IAlertService>(new AlertService());
 

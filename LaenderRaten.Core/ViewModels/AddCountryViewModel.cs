@@ -140,9 +140,19 @@ namespace LaenderRaten.Core.ViewModels
         {
             this.Countries.Clear();
 
+            var laenderToDelte = _repository.GetAll();
+
+            foreach (var item in laenderToDelte)
+            {
+                _repository.Delete(item);
+            }
+
             var laender = _loadRepository.LoadAll();
 
-
+            foreach (var item in laender)
+            {
+                this.Countries.Add(item);
+            }
         }
 
         #endregion
