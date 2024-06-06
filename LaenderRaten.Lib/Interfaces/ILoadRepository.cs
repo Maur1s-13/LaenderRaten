@@ -8,5 +8,5 @@ namespace LaenderRaten.Lib.Interfaces;
 
 public interface ILoadRepository
 {
-    public void LoadAll();
+    public List<Land> LoadAll();
 }

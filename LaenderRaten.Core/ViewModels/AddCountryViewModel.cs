@@ -15,10 +15,11 @@ using System.Xml;
 
 namespace LaenderRaten.Core.ViewModels
 {
-    public partial class AddCountryViewModel(IRepository repository, IAlertService alertService) : ObservableObject
+    public partial class AddCountryViewModel(IRepository repository, IAlertService alertService, ILoadRepository loadRepository) : ObservableObject
     {
         IRepository _repository = repository;
         IAlertService _alertService = alertService;
+        ILoadRepository _loadRepository = loadRepository;
         
         //Same country cant be added twice
         //update Method
@@ -132,6 +133,18 @@ namespace LaenderRaten.Core.ViewModels
                 this.Countries.Add(country);
             }
         }
+
+
+        [RelayCommand]
+        public void LoadAllCountries()
+        {
+            this.Countries.Clear();
+
+            var laender = _loadRepository.LoadAll();
+
+
+        }
+
         #endregion
 
         #region ReplaceMethods

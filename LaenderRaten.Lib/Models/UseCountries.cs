@@ -14,37 +14,49 @@ public class UseCountries : ILoadRepository
     IInputRepository _inputrepository;
 
 
-    public void LoadAll()
+    public List<Land> LoadAll()
     {
+        List<Land> lands = new List<Land>();
+
         Land c1 = new("Afghanistan", "Kabul", "afghanistan.png", "Asien");
         _sqlrepsitory.Add(c1);
+        
 
         Land c2 = new("Albanien", "Tirana", "albanien.png", "Europa");
         _sqlrepsitory.Add(c2);
+        
 
         Land c3 = new("Algerien", "Algier", "algerien.png", "Afrika");
         _sqlrepsitory.Add(c3);
+        
 
         Land c4 = new("Andorra", "Andorra la Vella", "andorra.png", "Europa");
         _sqlrepsitory.Add(c4);
+        
 
         Land c5 = new("Angola", "Luanda", "angola.png", "Afrika");
         _sqlrepsitory.Add(c5);
+        
 
         Land c6 = new("Antigua und Barbuda", "Saint John’s", "antiguaundbarbuda.png", "Nordamerika");
         _sqlrepsitory.Add(c6);
+        lands.Add(c6);
 
         Land c7 = new("Argentinien", "Buenos Aires", "argentinien.png", "Suedamerika");
         _sqlrepsitory.Add(c7);
+        
 
         Land c8 = new("Armenien", "Jerewan", "armenien.png", "Asien/Europa");
-        _sqlrepsitory.Add(c8);
+        
+        
 
         Land c9 = new("Australien", "Canberra", "australien.png", "Australien");
         _sqlrepsitory.Add(c9);
+        
 
         Land c10 = new("Oesterreich", "Wien", "oesterreich.png", "Europa");
         _sqlrepsitory.Add(c10);
+        
 
         Land c11 = new("Aserbaidschan", "Baku", "aserbaidschan.png", "Asien/Europa");
         _sqlrepsitory.Add(c11);
@@ -602,5 +614,14 @@ public class UseCountries : ILoadRepository
         Land c195 = new("Simbabwe", "Harare", "simbabwe.png", "Afrika");
         _sqlrepsitory.Add(c195);
 
+        var countries = _sqlrepsitory.GetAll();
+
+        foreach (var country in countries)
+        {
+            lands.Add(country);
+        }
+
+        return lands;
+        
     }
 }
